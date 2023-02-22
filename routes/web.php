@@ -3,6 +3,10 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,24 +20,66 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     echo "Selamat Datang";
-// });
+// PRAKTIKUM 1
 
-// Route::get('/about', function () {
-//     echo "2141720054 Diah Putri Nofianti";
-// });
+/*Route::get('/', function () {
+    echo "Selamat Datang";
+});
 
-// Route::get('/articles/{id}', function ($id) {
-//     echo "Halaman Artikel dengan ID ".$id;
-// });
+Route::get('/about', function () {
+    echo "2141720054 Diah Putri Nofianti";
+});
 
-// Route::get('/', [PageController::class, 'index']);
-// Route::get('/about', [PageController::class, 'about']);
-// Route::get('/articles/{id}', [PageController::class, 'article']);
+Route::get('/articles/{id}', function ($id) {
+    echo "Halaman Artikel dengan ID ".$id;
+});
+*/
 
+
+// PRAKTIKUM 2 - PageController
+
+/*
+Route::get('/', [PageController::class, 'index']);
+Route::get('/about', [PageController::class, 'about']);
+Route::get('/articles/{id}', [PageController::class, 'article']);
+*/
+
+// PRAKTIKUM 2 - Single Action Controller
+/*
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/about', [AboutController::class, 'about']);
 
 Route::get('/articles/{id}', [ArticleController::class, 'articles']);
+*/
+
+
+// PRAKTIKUM 3
+
+//Halaman Home
+Route::get('/', [HomeController::class, 'index']);
+
+// Halaman Products (route prefix)
+Route::prefix('category')->group(function () {
+    Route::get('/', [ProductController::class, 'index']);
+    Route::get('/games', [ProductController::class, 'games']);
+    Route::get('/books', [ProductController::class, 'books']);
+    Route::get('/songs', [ProductController::class, 'songs']);
+});   
+
+// Halaman News (route param)
+Route::get('/news/{n}', [NewsController::class, 'news']);
+
+// Halaman Program (route prefix)
+Route::prefix('program')->group(function () {
+    Route::get('/', [ProgramController::class, 'index']);
+    Route::get('/karir', [ProgramController::class, 'karir']);
+    Route::get('/magang', [ProgramController::class, 'magang']);
+    Route::get('/industri', [ProgramController::class, 'industri']);
+});  
+
+//Halaman About Us (route biasa)
+Route::get('/about', [AboutController::class, 'about']);
+
+//Halaman Contact Us (route resource only)
+Route::resource("/contact",ContactController::class)->only("index");
