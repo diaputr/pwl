@@ -4,9 +4,13 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
+use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +41,7 @@ Route::get('/articles/{id}', function ($id) {
 
 // PRAKTIKUM 1 (Pertemuan 3)
 
+/*
 Route::get('/', function () {
     return view('home');
 });
@@ -54,7 +59,7 @@ Route::prefix('program')->group(function () {
 Route::get('/about-us', [AboutController::class, 'about']);
 
 Route::resource('/contact-us', ContactController::class)->only('index');
-
+*/
 
 // PRAKTIKUM 2 - PageController
 
@@ -105,3 +110,8 @@ Route::get('/about', [AboutController::class, 'about']);
 //Halaman Contact Us (route resource only)
 Route::resource('/contact', ContactController::class)->only('index');
 */
+
+// PRAKTIKUM 2 (Pertemuan 3)
+route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+route::get('/profile/{name}', [ProfileController::class, 'index'])->name('profile');
+route::get('/experience', [ExperienceController::class, 'index'])->name('experience');

@@ -7,12 +7,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Blank Page</h1>
+                        <h1>Profile</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Blank Page</li>
+                            <li class="breadcrumb-item active">Profile</li>
                         </ol>
                     </div>
                 </div>
@@ -21,12 +21,10 @@
 
         <!-- Main content -->
         <section class="content">
-
             <!-- Default box -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Title</h3>
-
+                    <h3 class="card-title">About Me</h3>
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                             <i class="fas fa-minus"></i>
@@ -37,11 +35,15 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    Start creating your amazing application!
+                    Hi there! I'm {{ $name }}, a student majoring in Information Technology
+                    at State Polytechnic of Malang. <br> Aside from my studies,
+                    I'm passionate about design graphic, digital art, and illustration. <br>
+                    In my free time, you can find me exploring various art styles,
+                    as I find it to be a great form of self-expression.
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                    Footer
+                    <i>NIM : 2141720054</i>
                 </div>
                 <!-- /.card-footer-->
             </div>
@@ -51,8 +53,3 @@
         <!-- /.content -->
     </div>
 @endsection
-@push('custom_js')
-    <script>
-        alert('Selamat Datang')
-    </script>
-@endpush
