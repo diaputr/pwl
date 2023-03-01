@@ -8,6 +8,6 @@ class NewsController extends Controller
 {
     public function news($n)
     {
-        return "Berita Terkini ".$n;
+        return view('news', ['news' => $n]);
     }
 }

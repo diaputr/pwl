@@ -8,7 +8,7 @@ class ContactController extends Controller
 {
     public function index()
     {
-        return "Kontak Kami di 08xxxxx";
+        return view('contact-us');
     }
 
     public function fungsi()

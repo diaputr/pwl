@@ -35,6 +35,26 @@ Route::get('/articles/{id}', function ($id) {
 });
 */
 
+// PRAKTIKUM 1 (Pertemuan 3)
+
+Route::get('/', function () {
+    return view('home');
+});
+
+Route::prefix('product')->group(function () {
+    Route::get('/', [ProductController::class, 'index']);
+});
+
+Route::get('/news/{n}', [NewsController::class, 'news']);
+
+Route::prefix('program')->group(function () {
+    Route::get('/', [ProgramController::class, 'index']);
+});
+
+Route::get('/about-us', [AboutController::class, 'about']);
+
+Route::resource('/contact-us', ContactController::class)->only('index');
+
 
 // PRAKTIKUM 2 - PageController
 
@@ -54,8 +74,9 @@ Route::get('/articles/{id}', [ArticleController::class, 'articles']);
 */
 
 
-// PRAKTIKUM 3
+// PRAKTIKUM 3 (Pertemuan 2)
 
+/*
 //Halaman Home
 Route::get('/', [HomeController::class, 'index']);
 
@@ -65,7 +86,7 @@ Route::prefix('category')->group(function () {
     Route::get('/games', [ProductController::class, 'games']);
     Route::get('/books', [ProductController::class, 'books']);
     Route::get('/songs', [ProductController::class, 'songs']);
-});   
+});
 
 // Halaman News (route param)
 Route::get('/news/{n}', [NewsController::class, 'news']);
@@ -76,10 +97,11 @@ Route::prefix('program')->group(function () {
     Route::get('/karir', [ProgramController::class, 'karir']);
     Route::get('/magang', [ProgramController::class, 'magang']);
     Route::get('/industri', [ProgramController::class, 'industri']);
-});  
+});
 
 //Halaman About Us (route biasa)
 Route::get('/about', [AboutController::class, 'about']);
 
 //Halaman Contact Us (route resource only)
-Route::resource("/contact",ContactController::class)->only("index");
+Route::resource('/contact', ContactController::class)->only('index');
+*/

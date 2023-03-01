@@ -8,21 +8,21 @@ class ProgramController extends Controller
 {
     public function index()
     {
-        return "Program";
+        return view('program');
     }
 
-    public function karir()
-    {
-        return "Dream Job";
-    }
+    // public function karir()
+    // {
+    //     return "Dream Job";
+    // }
 
-    public function magang()
-    {
-        return "Internship";
-    }
+    // public function magang()
+    // {
+    //     return "Internship";
+    // }
 
-    public function industri()
-    {
-        return "Companies";
-    }
+    // public function industri()
+    // {
+    //     return "Companies";
+    // }
 }
