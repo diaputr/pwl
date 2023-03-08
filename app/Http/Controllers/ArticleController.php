@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ArtikelModel;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    public function articles($id)
+    public function index()
     {
-        return "Halaman Artikel dengan ID {$id}";
+        $art = ArtikelModel::all();
+        return view('article', ['art' => $art]);
     }
 }

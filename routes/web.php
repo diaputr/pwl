@@ -1,16 +1,16 @@
 <?php
 
-use App\Http\Controllers\AboutController;
+// use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\HomeController;
+// use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\NewsController;
-use App\Http\Controllers\ProgramController;
-use App\Http\Controllers\ProductController;
+// use App\Http\Controllers\ProgramController;
+// use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Routing\Router;
+// use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -112,6 +112,10 @@ Route::resource('/contact', ContactController::class)->only('index');
 */
 
 // PRAKTIKUM 2 (Pertemuan 3)
+
 route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 route::get('/profile/{name}', [ProfileController::class, 'index'])->name('profile');
 route::get('/experience', [ExperienceController::class, 'index'])->name('experience');
+
+
+route::get('/articles', [ArticleController::class, 'index'])->name('articles');

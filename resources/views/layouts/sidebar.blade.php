@@ -55,9 +55,17 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('experience') }}" class="nav-link">
-                        <i class="nav-icon fas fa-book"></i>
+                        <i class="nav-icon fas fa-school"></i>
                         <p>
                             Experiences
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('articles') }}" class="nav-link">
+                        <i class="nav-icon fas fa-book"></i>
+                        <p>
+                            Articles
                         </p>
                     </a>
                 </li>
