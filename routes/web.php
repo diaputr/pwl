@@ -120,7 +120,7 @@ route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 route::get('/profile/{name}', [ProfileController::class, 'index'])->name('profile');
 route::get('/experience', [ExperienceController::class, 'index'])->name('experience');
 
-// PRAKTIKUM TUGAS (Pertemuan 4) 
+// PRAKTIKUM TUGAS (Pertemuan 4)
 route::get('/articles', [ArticleController::class, 'index'])->name('articles');
 
 route::get('/hobbies', [HobiController::class, 'index'])->name('hobi');
