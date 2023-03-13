@@ -6,6 +6,9 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\HobiController;
+use App\Http\Controllers\KeluargaController;
+use App\Http\Controllers\MatkulController;
 use App\Http\Controllers\NewsController;
 // use App\Http\Controllers\ProgramController;
 // use App\Http\Controllers\ProductController;
@@ -117,5 +120,9 @@ route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 route::get('/profile/{name}', [ProfileController::class, 'index'])->name('profile');
 route::get('/experience', [ExperienceController::class, 'index'])->name('experience');
 
-
+// PRAKTIKUM TUGAS (Pertemuan 4) 
 route::get('/articles', [ArticleController::class, 'index'])->name('articles');
+
+route::get('/hobbies', [HobiController::class, 'index'])->name('hobi');
+route::get('/families', [KeluargaController::class, 'index'])->name('keluarga');
+route::get('/courses', [MatkulController::class, 'index'])->name('matkul');
