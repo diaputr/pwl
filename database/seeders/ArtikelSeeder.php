@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class ArtikelSeeder extends Seeder
 {
-    /**
+    /*
      * Run the database seeds.
      *
      * @return void

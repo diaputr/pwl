@@ -122,7 +122,6 @@ route::get('/experience', [ExperienceController::class, 'index'])->name('experie
 
 // PRAKTIKUM TUGAS (Pertemuan 4)
 route::get('/articles', [ArticleController::class, 'index'])->name('articles');
-
 route::get('/hobbies', [HobiController::class, 'index'])->name('hobi');
 route::get('/families', [KeluargaController::class, 'index'])->name('keluarga');
 route::get('/courses', [MatkulController::class, 'index'])->name('matkul');
