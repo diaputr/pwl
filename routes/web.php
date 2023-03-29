@@ -2,6 +2,7 @@
 
 // use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\Auth\LoginController;
 // use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\NewsController;
 // use App\Http\Controllers\ProgramController;
 // use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Auth;
 // use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 
@@ -114,14 +116,21 @@ Route::get('/about', [AboutController::class, 'about']);
 Route::resource('/contact', ContactController::class)->only('index');
 */
 
-// PRAKTIKUM 2 (Pertemuan 3)
+Auth::routes();
 
-route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-route::get('/profile/{name}', [ProfileController::class, 'index'])->name('profile');
-route::get('/experience', [ExperienceController::class, 'index'])->name('experience');
+Route::get('/logout', [LoginController::class, 'logout']);
 
-// PRAKTIKUM TUGAS (Pertemuan 4)
-route::get('/articles', [ArticleController::class, 'index'])->name('articles');
-route::get('/hobbies', [HobiController::class, 'index'])->name('hobi');
-route::get('/families', [KeluargaController::class, 'index'])->name('keluarga');
-route::get('/courses', [MatkulController::class, 'index'])->name('matkul');
+Route::middleware(['auth'])->group(function () {
+    // PRAKTIKUM 2 (Pertemuan 3)
+
+    route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    route::get('/profile/{name}', [ProfileController::class, 'index'])->name('profile');
+    route::get('/experience', [ExperienceController::class, 'index'])->name('experience');
+
+    // PRAKTIKUM TUGAS (Pertemuan 4)
+    route::get('/articles', [ArticleController::class, 'index'])->name('articles');
+    route::get('/hobbies', [HobiController::class, 'index'])->name('hobi');
+    route::get('/families', [KeluargaController::class, 'index'])->name('keluarga');
+    route::get('/courses', [MatkulController::class, 'index'])->name('matkul');
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
