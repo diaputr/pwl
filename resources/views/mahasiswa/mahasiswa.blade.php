@@ -1,0 +1,74 @@
+@extends('layouts.template')
+
+@section('content')
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Students</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">Students</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <a href="{{ url('mahasiswa/create') }}" class="btn btn-sm btn-success my-2">
+                <i class="fas fa-plus"></i> Add Data
+            </a>
+
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>No</th>
+                        <th>NIM</th>
+                        <th>Nama</th>
+                        <th>Gender</th>
+                        <th>Alamat</th>
+                        <th>HP</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if ($mhs->count() > 0)
+                        @foreach ($mhs as $i => $m)
+                            <tr>
+                                <td>{{ ++$i }}</td>
+                                <td>{{ $m->nim }}</td>
+                                <td>{{ $m->nama }}</td>
+                                <td>{{ $m->jk }}</td>
+                                <td>{{ $m->alamat }}</td>
+                                <td>{{ $m->hp }}</td>
+                                <td>
+                                    <!-- Bikin tombol edit dan delete -->
+                                    <a href="{{ url('/mahasiswa/' . $m->id . '/edit') }}"
+                                        class="btn btn-sm btn-warning">Edit</a>
+
+                                    <form method="POST" action="{{ url('/mahasiswa/' . $m->id) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @else
+                        <tr>
+                            <td colspan="6" class="text-center">No Data Available</td>
+                        </tr>
+                    @endif
+                </tbody>
+            </table>
+        </section>
+        <!-- /.content -->
+    </div>
+
+@endsection

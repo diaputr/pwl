@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\HobiController;
 use App\Http\Controllers\KeluargaController;
+use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatkulController;
 use App\Http\Controllers\NewsController;
 // use App\Http\Controllers\ProgramController;
@@ -133,4 +134,7 @@ Route::middleware(['auth'])->group(function () {
     route::get('/families', [KeluargaController::class, 'index'])->name('keluarga');
     route::get('/courses', [MatkulController::class, 'index'])->name('matkul');
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    //Pertemuan 8
+    Route::resource('/mahasiswa', MahasiswaController::class);
 });

@@ -53,6 +53,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ url('/mahasiswa') }}" class="nav-link">
+                        <i class="nav-icon fas fa-user-friends"></i>
+                        <p>
+                            Students
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('experience') }}" class="nav-link">
                         <i class="nav-icon fas fa-school"></i>
                         <p>
@@ -78,7 +86,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('keluarga') }}" class="nav-link">
-                        <i class="nav-icon fas fa-user-friends"></i>
+                        <i class="nav-icon fas fa-users"></i>
                         <p>
                             Families
                         </p>
