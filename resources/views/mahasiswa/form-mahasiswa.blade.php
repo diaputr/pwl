@@ -45,30 +45,39 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Jenis Kelamin</label>
-                                <input class="form-control @error('jk') is-invalid @enderror"
-                                    value="{{ isset($mhs) ? $mhs->jk : old('jk') }} " name="jk" type="text">
+                                <label>Gender</label><br>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="jk" value="L"
+                                        {{ isset($mhs) && $mhs->jk == 'L' ? 'checked' : '' }}>
+                                    <label class="form-check-label">Laki-laki</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="jk" value="P"
+                                        {{ isset($mhs) && $mhs->jk == 'P' ? 'checked' : '' }}>
+                                    <label class="form-check-label">Perempuan</label>
+                                </div>
                                 @error('jk')
-                                    <span class="error invalid-feedback">{{ $message }}</span>
+                                    <div class="error invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <label>Tempat Lahir</label>
-                                <input class="form-control @error('tempat_lahir') is-invalid @enderror"
-                                    value="{{ isset($mhs) ? $mhs->tempat_lahir : old('tempat_lahir') }} "
-                                    name="tempat_lahir" type="text">
-                                @error('tempat_lahir')
-                                    <span class="error invalid-feedback">{{ $message }}</span>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label>Tanggal Lahir</label>
-                                <input class="form-control @error('tgl_lahir') is-invalid @enderror"
-                                    value="{{ isset($mhs) ? $mhs->tgl_lahir : old('tgl_lahir') }}" name="tgl_lahir"
-                                    type="date">
-                                @error('tgl_lahir')
-                                    <span class="error invalid-feedback">{{ $message }}</span>
-                                @enderror
+                            <label>Tempat, Tanggal Lahir</label>
+                            <div class="form-group row">
+                                <div class="col-sm-4">
+                                    <input class="form-control @error('tempat_lahir') is-invalid @enderror"
+                                        value="{{ isset($mhs) ? $mhs->tempat_lahir : old('tempat_lahir') }}"
+                                        name="tempat_lahir" type="text">
+                                    @error('tempat_lahir')
+                                        <span class="error invalid-feedback">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="col-sm-8">
+                                    <input class="form-control @error('tgl_lahir') is-invalid @enderror"
+                                        value="{{ isset($mhs) ? $mhs->tgl_lahir : old('tgl_lahir') }}" name="tgl_lahir"
+                                        type="date">
+                                    @error('tgl_lahir')
+                                        <span class="error invalid-feedback">{{ $message }}</span>
+                                    @enderror
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Alamat</label>

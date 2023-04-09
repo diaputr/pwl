@@ -39,7 +39,7 @@ class MahasiswaController extends Controller
         $request->validate([
             'nim' => 'required|string|max:10|unique:mahasiswas,nim',
             'nama' => 'required|string|max:50',
-            'jk' => 'required|in:l,p,L,P',
+            'jk' => 'required|in:L,P',
             'tempat_lahir' => 'required|string|max:50',
             'tgl_lahir' => 'required|date',
             'alamat' => 'required|string|max:255',
@@ -86,7 +86,7 @@ class MahasiswaController extends Controller
         $request->validate([
             'nim' => 'required|string|max:10|unique:mahasiswas,nim,' . $id,
             'nama' => 'required|string|max:50',
-            'jk' => 'required|in:l,p,L,P',
+            'jk' => 'required|in:L,P',
             'tempat_lahir' => 'required|string|max:50',
             'tgl_lahir' => 'required|date',
             'alamat' => 'required|string|max:255',

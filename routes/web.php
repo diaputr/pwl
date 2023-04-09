@@ -129,12 +129,18 @@ Route::middleware(['auth'])->group(function () {
     route::get('/experience', [ExperienceController::class, 'index'])->name('experience');
 
     // PRAKTIKUM TUGAS (Pertemuan 4)
+    /*
     route::get('/articles', [ArticleController::class, 'index'])->name('articles');
     route::get('/hobbies', [HobiController::class, 'index'])->name('hobi');
     route::get('/families', [KeluargaController::class, 'index'])->name('keluarga');
     route::get('/courses', [MatkulController::class, 'index'])->name('matkul');
+    */
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-    //Pertemuan 8
+    //Pertemuan 8 CRUD
     Route::resource('/mahasiswa', MahasiswaController::class);
+    Route::resource('/hobi', HobiController::class);
+    Route::resource('/matkul', MatkulController::class);
+    Route::resource('/keluarga', KeluargaController::class);
+    Route::resource('/artikel', ArticleController::class);
 });

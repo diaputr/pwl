@@ -69,7 +69,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('articles') }}" class="nav-link">
+                    <a href="{{ url('/artikel') }}" class="nav-link">
                         <i class="nav-icon fas fa-book"></i>
                         <p>
                             Articles
@@ -77,7 +77,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('matkul') }}" class="nav-link">
+                    <a href="{{ url('/matkul') }}" class="nav-link">
                         <i class="nav-icon fas fa-tasks"></i>
                         <p>
                             Courses
@@ -85,7 +85,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('keluarga') }}" class="nav-link">
+                    <a href="{{ url('/keluarga') }}" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Families
@@ -93,7 +93,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('hobi') }}" class="nav-link">
+                    <a href="{{ url('/hobi') }}" class="nav-link">
                         <i class="nav-icon fas fa-globe"></i>
                         <p>
                             Hobbies

@@ -21,6 +21,22 @@
 
         <!-- Main content -->
         <section class="content">
+
+            @if (session('success'))
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+                                {{ session('success') }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
             <a href="{{ url('mahasiswa/create') }}" class="btn btn-sm btn-success my-2">
                 <i class="fas fa-plus"></i> Add Data
             </a>
@@ -49,13 +65,14 @@
                                 <td>{{ $m->hp }}</td>
                                 <td>
                                     <!-- Bikin tombol edit dan delete -->
-                                    <a href="{{ url('/mahasiswa/' . $m->id . '/edit') }}"
-                                        class="btn btn-sm btn-warning">Edit</a>
+                                    <a href="{{ url('/mahasiswa/' . $m->id . '/edit') }}" class="btn btn-sm btn-warning">
+                                        <i class="fas fa-edit"></i> Edit </a>
 
                                     <form method="POST" action="{{ url('/mahasiswa/' . $m->id) }}">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                        <button type="submit" class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i>
+                                            Delete</button>
                                     </form>
                                 </td>
                             </tr>
