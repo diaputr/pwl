@@ -17,6 +17,18 @@ class MahasiswaModel extends Model
         'tempat_lahir',
         'tgl_lahir',
         'alamat',
-        'hp'
+        'hp',
+        'id_kelas',
+        'id_prodi'
     ];
+
+    public function kls()
+    {
+        return $this->belongsTo(KelasModel::class, 'id_kelas', 'id');
+    }
+
+    public function prodi()
+    {
+        return $this->belongsTo(ProdiModel::class, 'id_prodi', 'id');
+    }
 }

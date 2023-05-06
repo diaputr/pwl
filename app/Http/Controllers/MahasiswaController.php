@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\MahasiswaModel;
+use App\Models\KelasModel;
+use App\Models\ProdiModel;
 use Illuminate\Http\Request;
 
 class MahasiswaController extends Controller
@@ -15,6 +17,7 @@ class MahasiswaController extends Controller
     public function index()
     {
         $mhs = MahasiswaModel::all();
+        // $paginate = MahasiswaModel::orderBy('id', 'asc')->paginate(3);
         return view('mahasiswa.mahasiswa', ['mhs' => $mhs]);
     }
 
@@ -25,7 +28,7 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
-        return view('mahasiswa.form-mahasiswa', ['urlform' => url('/mahasiswa')]);
+        return view('mahasiswa.form-mahasiswa', ['urlform' => url('/mahasiswa'), 'kls' => KelasModel::all(), 'prodi' => ProdiModel::all()]);
     }
 
     /**
@@ -39,6 +42,8 @@ class MahasiswaController extends Controller
         $request->validate([
             'nim' => 'required|string|max:10|unique:mahasiswas,nim',
             'nama' => 'required|string|max:50',
+            'id_kelas' => 'required',
+            'id_prodi' => 'required',
             'jk' => 'required|in:L,P',
             'tempat_lahir' => 'required|string|max:50',
             'tgl_lahir' => 'required|date',
@@ -57,9 +62,10 @@ class MahasiswaController extends Controller
      * @param  \App\Models\MahasiswaModel  $mahasiswa
      * @return \Illuminate\Http\Response
      */
-    public function show(MahasiswaModel $mahasiswa)
+    public function show($id)
     {
-        //
+        $mhs = MahasiswaModel::with('kls')->find($id);
+        return view('mahasiswa.detail', ['mhs' => $mhs]);
     }
 
     /**
@@ -71,7 +77,7 @@ class MahasiswaController extends Controller
     public function edit($id)
     {
         $mhs = MahasiswaModel::find($id);
-        return view('mahasiswa.form-mahasiswa', ['urlform' => url("/mahasiswa/" . $id), 'mhs' => $mhs]);
+        return view('mahasiswa.form-mahasiswa', ['urlform' => url("/mahasiswa/" . $id), 'mhs' => $mhs, 'kls' => KelasModel::all(), 'prodi' => ProdiModel::all()]);
     }
 
     /**
@@ -86,6 +92,8 @@ class MahasiswaController extends Controller
         $request->validate([
             'nim' => 'required|string|max:10|unique:mahasiswas,nim,' . $id,
             'nama' => 'required|string|max:50',
+            'id_kelas' => 'required',
+            'id_prodi' => 'required',
             'jk' => 'required|in:L,P',
             'tempat_lahir' => 'required|string|max:50',
             'tgl_lahir' => 'required|date',

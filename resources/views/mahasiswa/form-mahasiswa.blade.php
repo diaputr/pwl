@@ -27,7 +27,6 @@
                         <form method="POST" action="{{ $urlform }}">
                             @csrf
                             {!! isset($mhs) ? method_field('PUT') : '' !!}
-
                             <div class="form-group">
                                 <label>NIM</label>
                                 <input class="form-control @error('nim') is-invalid @enderror"
@@ -59,6 +58,28 @@
                                 @error('jk')
                                     <div class="error invalid-feedback">{{ $message }}</div>
                                 @enderror
+                            </div>
+                            <div class="form-group">
+                                <label>Kelas</label>
+                                <select name="id_kelas" class="form-control">
+                                    <option value="">-- Pilih Kelas --</option>
+                                    @foreach ($kls as $kelas)
+                                        <option value="{{ $kelas->id }}"
+                                            {{ isset($mhs) && $mhs->id_kelas == $kelas->id ? 'selected' : '' }}>
+                                            {{ $kelas->nama }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Program Studi</label>
+                                <select name="id_prodi" class="form-control">
+                                    <option value="">-- Pilih Prodi --</option>
+                                    @foreach ($prodi as $pro)
+                                        <option value="{{ $pro->id }}"
+                                            {{ isset($mhs) && $mhs->id_prodi == $pro->id ? 'selected' : '' }}>
+                                            {{ $pro->nama }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <label>Tempat, Tanggal Lahir</label>
                             <div class="form-group row">

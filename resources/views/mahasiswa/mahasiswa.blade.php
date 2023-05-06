@@ -48,8 +48,10 @@
                         <th>NIM</th>
                         <th>Nama</th>
                         <th>Gender</th>
-                        <th>Alamat</th>
-                        <th>HP</th>
+                        <th>Kelas</th>
+                        <th>Prodi</th>
+                        {{-- <th>Alamat</th> --}}
+                        {{-- <th>HP</th> --}}
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -61,25 +63,30 @@
                                 <td>{{ $m->nim }}</td>
                                 <td>{{ $m->nama }}</td>
                                 <td>{{ $m->jk }}</td>
-                                <td>{{ $m->alamat }}</td>
-                                <td>{{ $m->hp }}</td>
+                                <td>{{ $m->kls->nama }}</td>
+                                <td>{{ $m->prodi->kode }}</td>
+                                {{-- <td>{{ $m->alamat }}</td> --}}
+                                {{-- <td>{{ $m->hp }}</td> --}}
                                 <td>
                                     <!-- Bikin tombol edit dan delete -->
+                                    <a href="{{ url('/mahasiswa/' . $m->id) }}" class="btn btn-sm btn-primary"> <i
+                                            class="fas fa-eye"> </i> Detail</a><br>
                                     <a href="{{ url('/mahasiswa/' . $m->id . '/edit') }}" class="btn btn-sm btn-warning">
                                         <i class="fas fa-edit"></i> Edit </a>
 
                                     <form method="POST" action="{{ url('/mahasiswa/' . $m->id) }}">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i>
-                                            Delete</button>
+                                        <button type="submit" class="btn btn-sm btn-danger btndelete" title='Delete'> <i
+                                                class="fas fa-trash"></i>
+                                            Delete </button>
                                     </form>
                                 </td>
                             </tr>
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="6" class="text-center">No Data Available</td>
+                            <td colspan="12" class="text-center">No Data Available</td>
                         </tr>
                     @endif
                 </tbody>
