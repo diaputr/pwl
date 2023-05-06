@@ -15,55 +15,79 @@ class MatkulSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('matkul_models')->insert([
+        DB::table('matkuls')->insert([
             [
+                'kode' => 'ADBO',
                 'nama' => 'Analisis dan Desain Berorentasi Objek',
-                'dosen' => 'Aria Ririd, S.Kom., M.Kom.',
+                // 'dosen' => 'Aria Ririd, S.Kom., M.Kom.',
+                'semester' => 4,
                 'sks' => 4,
-                'hari' => 'Jumat',
-                'ruang' => 'LIG2'
+                'jam' => 2,
+                // 'hari' => 'Jumat',
+                // 'ruang' => 'LIG2'
             ], [
+                'kode' => 'BI',
                 'nama' => 'Business Intelligence',
-                'dosen' => 'Endang Septya, S.Pd., M.Kom.',
+                // 'dosen' => 'Endang Septya, S.Pd., M.Kom.',
+                'semester' => 4,
                 'sks' => 4,
-                'hari' => 'Jumat',
-                'ruang' => 'LPY4'
+                'jam' => 3,
+                // 'hari' => 'Jumat',
+                // 'ruang' => 'LPY4'
             ], [
+                'kode' => 'JRK',
                 'nama' => 'Jaringan Komputer',
-                'dosen' => 'Kaka Syamsiyah, S.Kom., M.T.',
+                // 'dosen' => 'Kaka Syamsiyah, S.Kom., M.T.',
+                'semester' => 4,
                 'sks' => 4,
-                'hari' => 'Selasa',
-                'ruang' => 'RT06'
+                'jam' => 2,
+                // 'hari' => 'Selasa',
+                // 'ruang' => 'RT06'
             ], [
+                'kode' => 'KWN',
                 'nama' => 'Kewarganegaraan',
-                'dosen' => 'Widya Ningtyas, S.H., M.H.',
+                // 'dosen' => 'Widya Ningtyas, S.H., M.H.',
+                'semester' => 4,
                 'sks' => 2,
-                'hari' => 'Rabu',
-                'ruang' => 'RT07'
+                'jam' => 2,
+                // 'hari' => 'Rabu',
+                // 'ruang' => 'RT07'
             ], [
+                'kode' => 'MPRO',
                 'nama' => 'Manajemen Proyek',
-                'dosen' => 'Chandra Bellina, S.Kom., M.T.',
+                // 'dosen' => 'Chandra Bellina, S.Kom., M.T.',
+                'semester' => 4,
                 'sks' => 3,
-                'hari' => 'Selasa',
-                'ruang' => 'LSI2'
+                'jam' => 2,
+                // 'hari' => 'Selasa',
+                // 'ruang' => 'LSI2'
             ], [
+                'kode' => 'PWL',
                 'nama' => 'Pemrograman Web Lanjut',
-                'dosen' => 'Moch. Abdul, S.ST., M.Kom.',
+                // 'dosen' => 'Moch. Abdul, S.ST., M.Kom.',
+                'semester' => 4,
                 'sks' => 6,
-                'hari' => 'Rabu',
-                'ruang' => 'LPR6'
+                'jam' => 4,
+                // 'hari' => 'Rabu',
+                // 'ruang' => 'LPR6'
             ], [
+                'kode' => 'PRO',
                 'nama' => 'Proyek 1',
-                'dosen' => 'Rudi Adiari, S.T., M.Cs.',
+                // 'dosen' => 'Rudi Adiari, S.T., M.Cs.',
+                'semester' => 4,
                 'sks' => 6,
-                'hari' => 'Senin',
-                'ruang' => 'LPY3'
+                'jam' => 4,
+                // 'hari' => 'Senin',
+                // 'ruang' => 'LPY3'
             ], [
+                'kode' => 'STK',
                 'nama' => 'Statistik Komputasi',
-                'dosen' => 'Eli Nurhayati, S.T, M.T.',
+                // 'dosen' => 'Eli Nurhayati, S.T, M.T.',
+                'semester' => 4,
                 'sks' => 4,
-                'hari' => 'Kamis',
-                'ruang' => 'RT13'
+                'jam' => 2,
+                // 'hari' => 'Kamis',
+                // 'ruang' => 'RT13'
             ]
         ]);
     }
