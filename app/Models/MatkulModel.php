@@ -12,10 +12,18 @@ class MatkulModel extends Model
     protected $primaryKey = 'matkul_id';
     protected $table = 'matkuls';
     protected $fillable = [
+        'kode',
         'nama',
-        'dosen',
+        // 'dosen',
+        'semester',
         'sks',
-        'hari',
-        'ruang'
+        'jam',
+        // 'hari',
+        // 'ruang'
     ];
+
+    public function mahasiswa()
+    {
+        return $this->belongsToMany(MahasiswaModel::class, 'mhs_matkuls', 'id_matkul', 'id_mhs')->withPivot('nilai');
+    }
 }

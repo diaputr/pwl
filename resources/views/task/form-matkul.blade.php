@@ -28,6 +28,15 @@
                             @csrf
                             {!! isset($matkul) ? method_field('PUT') : '' !!}
                             <div class="form-group">
+                                <label>Kode</label>
+                                <input class="form-control @error('kode') is-invalid @enderror"
+                                    value="{{ isset($matkul) ? $matkul->kode : old('kode') }} " name="kode"
+                                    type="text">
+                                @error('kode')
+                                    <span class="error invalid-feedback">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
                                 <label>Nama</label>
                                 <input class="form-control @error('nama') is-invalid @enderror"
                                     value="{{ isset($matkul) ? $matkul->nama : old('nama') }} " name="nama"
@@ -36,12 +45,21 @@
                                     <span class="error invalid-feedback">{{ $message }}</span>
                                 @enderror
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label>Dosen</label>
                                 <input class="form-control @error('dosen') is-invalid @enderror"
                                     value="{{ isset($matkul) ? $matkul->dosen : old('dosen') }} " name="dosen"
                                     type="text">
                                 @error('dosen')
+                                    <span class="error invalid-feedback">{{ $message }}</span>
+                                @enderror
+                            </div> --}}
+                            <div class="form-group">
+                                <label>Semester</label>
+                                <input class="form-control @error('semester') is-invalid @enderror"
+                                    value="{{ isset($matkul) ? intval($matkul->semester) : old('semester') }}"
+                                    name="semester" type="number">
+                                @error('semester')
                                     <span class="error invalid-feedback">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -55,6 +73,15 @@
                                 @enderror
                             </div>
                             <div class="form-group">
+                                <label>Jam</label>
+                                <input class="form-control @error('jam') is-invalid @enderror"
+                                    value="{{ isset($matkul) ? intval($matkul->jam) : old('jam') }}" name="jam"
+                                    type="number">
+                                @error('jam')
+                                    <span class="error invalid-feedback">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            {{-- <div class="form-group">
                                 <label>Hari</label>
                                 <select class="form-control @error('hari') is-invalid @enderror" name="hari">
                                     <option value="">-- Pilih Hari --</option>
@@ -72,8 +99,8 @@
                                 @error('hari')
                                     <span class="error invalid-feedback">{{ $message }}</span>
                                 @enderror
-                            </div>
-                            <div class="form-group">
+                            </div> --}}
+                            {{-- <div class="form-group">
                                 <label>Ruang</label>
                                 <input class="form-control @error('ruang') is-invalid @enderror"
                                     value="{{ isset($matkul) ? $matkul->ruang : old('ruang') }} " name="ruang"
@@ -81,7 +108,7 @@
                                 @error('ruang')
                                     <span class="error invalid-feedback">{{ $message }}</span>
                                 @enderror
-                            </div>
+                            </div> --}}
                             <button class="btn btn-md btn-primary my-2 float-right" type="submit">Submit</button>
                         </form>
                     </div>

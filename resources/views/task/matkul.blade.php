@@ -45,11 +45,14 @@
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">No</th>
+                        <th scope="col">Kode</th>
                         <th scope="col">Nama</th>
-                        <th scope="col">Dosen</th>
+                        {{-- <th scope="col">Dosen</th> --}}
+                        <th scope="col">Semester</th>
                         <th scope="col">SKS</th>
-                        <th scope="col">Hari</th>
-                        <th scope="col">Ruang</th>
+                        <th scope="col">Jam</th>
+                        {{-- <th scope="col">Hari</th> --}}
+                        {{-- <th scope="col">Ruang</th> --}}
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -61,28 +64,34 @@
                         @foreach ($matkul as $item)
                             <tr>
                                 <th scope="row">{{ $id++ }}</th>
+                                <td>{{ $item->kode }}</td>
                                 <td>{{ $item->nama }}</td>
-                                <td>{{ $item->dosen }}</td>
+                                {{-- <td>{{ $item->dosen }}</td> --}}
+                                <td>{{ $item->semester }}</td>
                                 <td>{{ $item->sks }}</td>
-                                <td>{{ $item->hari }}</td>
-                                <td>{{ $item->ruang }}</td>
+                                <td>{{ $item->jam }}</td>
+                                {{-- <td>{{ $item->hari }}</td> --}}
+                                {{-- <td>{{ $item->ruang }}</td> --}}
                                 <td>
                                     <!-- Bikin tombol edit dan delete -->
-                                    <a href="{{ url('/matkul/' . $item->matkul_id . '/edit') }}"
-                                        class="btn btn-sm btn-warning"> <i class="fas fa-edit"></i> Edit </a>
-
-                                    <form method="POST" action="{{ url('/matkul/' . $item->matkul_id) }}">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i>
-                                            Delete</button>
-                                    </form>
+                                    <div class="btn-group" role="group">
+                                        <a href="{{ url('/matkul/' . $item->matkul_id) }}"
+                                            class="btn btn-sm btn-primary mr-2"> <i class="fas fa-eye"> </i> Detail</a>
+                                        <a href="{{ url('/matkul/' . $item->matkul_id . '/edit') }}"
+                                            class="btn btn-sm btn-warning mr-2"><i class="fas fa-edit"></i> Edit </a>
+                                        <form method="POST" action="{{ url('/matkul/' . $item->matkul_id) }}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-sm btn-danger btndelete" title='Delete'>
+                                                <i class="fas fa-trash"></i> Delete </button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="6" class="text-center">No Data Available</td>
+                            <td colspan="12" class="text-center">No Data Available</td>
                         </tr>
                     @endif
                 </tbody>

@@ -22,16 +22,25 @@ class MatkulController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'kode' => 'required',
             'nama' => 'required|string|max:50',
-            'dosen' => 'required|string|max:80',
+            // 'dosen' => 'required|string|max:80',
+            'semester' => 'required|integer',
             'sks' => 'required|integer',
-            'hari' => 'required|in:Senin,Selasa,Rabu,Kamis,Jumat',
-            'ruang' => 'required|string|max:10'
+            'jam' => 'required|integer',
+            // 'hari' => 'required|in:Senin,Selasa,Rabu,Kamis,Jumat',
+            // 'ruang' => 'required|string|max:10'
         ]);
 
         MatkulModel::create($request->except(['_token']));
         return redirect('/matkul')
             ->with('success', 'Mata Kuliah Berhasil Ditambahkan');
+    }
+
+    public function show($id)
+    {
+        $matkul = MatkulModel::find($id);
+        return view('task.detail-matkul', ['matkul' => $matkul]);
     }
 
     public function edit($id)
@@ -43,11 +52,14 @@ class MatkulController extends Controller
     public function update(Request $request,  $id)
     {
         $request->validate([
+            'kode' => 'required',
             'nama' => 'required|string|max:50',
-            'dosen' => 'required|string|max:80',
+            // 'dosen' => 'required|string|max:80',
+            'semester' => 'required|integer',
             'sks' => 'required|integer',
-            'hari' => 'required|in:Senin,Selasa,Rabu,Kamis,Jumat',
-            'ruang' => 'required|string|max:10'
+            'jam' => 'required|integer',
+            // 'hari' => 'required|in:Senin,Selasa,Rabu,Kamis,Jumat',
+            // 'ruang' => 'required|string|max:10'
         ]);
 
         $requestData = $request->except(['_token', '_method']);

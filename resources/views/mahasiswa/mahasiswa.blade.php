@@ -49,7 +49,7 @@
                         <th>Nama</th>
                         <th>Gender</th>
                         <th>Kelas</th>
-                        <th>Prodi</th>
+                        <th>Program Studi</th>
                         {{-- <th>Alamat</th> --}}
                         {{-- <th>HP</th> --}}
                         <th>Action</th>
@@ -69,18 +69,21 @@
                                 {{-- <td>{{ $m->hp }}</td> --}}
                                 <td>
                                     <!-- Bikin tombol edit dan delete -->
-                                    <a href="{{ url('/mahasiswa/' . $m->id) }}" class="btn btn-sm btn-primary"> <i
-                                            class="fas fa-eye"> </i> Detail</a><br>
-                                    <a href="{{ url('/mahasiswa/' . $m->id . '/edit') }}" class="btn btn-sm btn-warning">
-                                        <i class="fas fa-edit"></i> Edit </a>
-
-                                    <form method="POST" action="{{ url('/mahasiswa/' . $m->id) }}">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger btndelete" title='Delete'> <i
-                                                class="fas fa-trash"></i>
-                                            Delete </button>
-                                    </form>
+                                    <div class="btn-group">
+                                        <a href="{{ url('/mahasiswa/' . $m->id) }}" class="btn btn-sm btn-primary mr-2"> <i
+                                                class="fas fa-eye"> </i> Detail </a>
+                                        <a href="{{ route('mahasiswa.khs', ['id' => $m->id]) }}"
+                                            class="btn btn-sm btn-success mr-2">
+                                            <i class="fas fa-star"> </i> Grade </a>
+                                        <a href="{{ url('/mahasiswa/' . $m->id . '/edit') }}"
+                                            class="btn btn-sm btn-warning mr-2"><i class="fas fa-edit"></i> Edit </a>
+                                        <form method="POST" action="{{ url('/mahasiswa/' . $m->id) }}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-sm btn-danger btndelete" title='Delete'>
+                                                <i class="fas fa-trash"></i> Delete </button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

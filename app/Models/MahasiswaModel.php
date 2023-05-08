@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class MahasiswaModel extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id';
     protected $table = 'mahasiswas';
 
     protected $fillable = [
@@ -30,5 +31,10 @@ class MahasiswaModel extends Model
     public function prodi()
     {
         return $this->belongsTo(ProdiModel::class, 'id_prodi', 'id');
+    }
+
+    public function matkul()
+    {
+        return $this->belongsToMany(MatkulModel::class, 'mhs_matkuls', 'id_mhs', 'id_matkul')->withPivot('nilai');
     }
 }

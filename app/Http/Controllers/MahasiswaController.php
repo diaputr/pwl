@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\MahasiswaModel;
 use App\Models\KelasModel;
+use App\Models\MhsMatkulModel;
 use App\Models\ProdiModel;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,10 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
-        return view('mahasiswa.form-mahasiswa', ['urlform' => url('/mahasiswa'), 'kls' => KelasModel::all(), 'prodi' => ProdiModel::all()]);
+        return view('mahasiswa.form-mahasiswa', [
+            'urlform' => url('/mahasiswa'),
+            'kls' => KelasModel::all(), 'prodi' => ProdiModel::all()
+        ]);
     }
 
     /**
@@ -68,6 +72,12 @@ class MahasiswaController extends Controller
         return view('mahasiswa.detail', ['mhs' => $mhs]);
     }
 
+    public function khs($id)
+    {
+        $mhs = MahasiswaModel::with('matkul')->find($id);
+        return view('mahasiswa.khs', ['mhs' => $mhs]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -77,7 +87,10 @@ class MahasiswaController extends Controller
     public function edit($id)
     {
         $mhs = MahasiswaModel::find($id);
-        return view('mahasiswa.form-mahasiswa', ['urlform' => url("/mahasiswa/" . $id), 'mhs' => $mhs, 'kls' => KelasModel::all(), 'prodi' => ProdiModel::all()]);
+        return view('mahasiswa.form-mahasiswa', [
+            'urlform' => url("/mahasiswa/" . $id),
+            'mhs' => $mhs, 'kls' => KelasModel::all(), 'prodi' => ProdiModel::all()
+        ]);
     }
 
     /**

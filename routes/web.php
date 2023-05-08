@@ -143,4 +143,5 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/matkul', MatkulController::class);
     Route::resource('/keluarga', KeluargaController::class);
     Route::resource('/artikel', ArticleController::class);
+    Route::get('/mahasiswa/{id}/khs', [MahasiswaController::class, 'khs'])->name('mahasiswa.khs');
 });
