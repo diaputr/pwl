@@ -24,10 +24,9 @@
             <div class="row justify-content-center">
                 <div class="card" style="width: 80%">
                     <div class="card-body ">
-                        <form method="POST" action="{{ $urlform }}">
+                        <form method="POST" action="{{ $urlform }}" enctype="multipart/form-data">
                             @csrf
                             {!! isset($art) ? method_field('PUT') : '' !!}
-
                             <div class="form-group">
                                 <label>Judul</label>
                                 <input class="form-control @error('judul') is-invalid @enderror"
@@ -45,17 +44,6 @@
                                     <span class="error invalid-feedback">{{ $message }}</span>
                                 @enderror
                             </div>
-
-                            {{-- <div class="form-group">
-                                <label>Kategori</label>
-                                <input class="form-control @error('kategori') is-invalid @enderror"
-                                    value="{{ isset($art) ? $art->kategori : old('kategori') }} " name="kategori"
-                                    type="text">
-                                @error('kategori')
-                                    <span class="error invalid-feedback">{{ $message }}</span>
-                                @enderror
-                            </div> --}}
-
                             <div class="form-group">
                                 <label>Kategori</label>
                                 <select class="form-control @error('kategori') is-invalid @enderror" name="kategori">
@@ -72,7 +60,6 @@
                                     <span class="error invalid-feedback">{{ $message }}</span>
                                 @enderror
                             </div>
-
                             <div class="form-group">
                                 <label>Tanggal Publish</label>
                                 <input class="form-control @error('tgl_publish') is-invalid @enderror"
@@ -81,6 +68,18 @@
                                 @error('tgl_publish')
                                     <span class="error invalid-feedback">{{ $message }}</span>
                                 @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="image">Gambar</label>
+                                @if (isset($art) && $art->image)
+                                    <div class="my-2">
+                                        <img width="120px" src="{{ asset('storage/' . $art->image) }}">
+                                    </div>
+                                    <input type="file" class="form-control" name="image">
+                                @else
+                                    <input type="file" class="form-control" required="required" name="image"
+                                        value="{{ old('image') }}">
+                                @endif
                             </div>
                             <button class="btn btn-md btn-primary my-2 float-right" type="submit">Submit</button>
                         </form>
