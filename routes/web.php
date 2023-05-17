@@ -127,6 +127,7 @@ Route::middleware(['auth'])->group(function () {
     route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     route::get('/profile/{name}', [ProfileController::class, 'index'])->name('profile');
     route::get('/experience', [ExperienceController::class, 'index'])->name('experience');
+    route::get('/artikel/cetak_pdf', [ArticleController::class, 'cetak_pdf']);
 
     // PRAKTIKUM TUGAS (Pertemuan 4)
     /*
