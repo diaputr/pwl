@@ -41,6 +41,10 @@
                 <i class="fas fa-plus"></i> Add Data
             </a>
 
+            <a href="{{ url('artikel/cetak_pdf') }}" class="btn btn-sm btn-primary my-2 float-right">
+                <i class="fas fa-print"></i> Print PDF
+            </a>
+
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
@@ -49,6 +53,7 @@
                         <th scope="col">Penulis</th>
                         <th scope="col">Kategori</th>
                         <th scope="col">Tanggal Publish</th>
+                        <th scope="col">Gambar</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -64,6 +69,13 @@
                                 <td>{{ $item->penulis }}</td>
                                 <td>{{ $item->kategori }}</td>
                                 <td>{{ $item->tgl_publish }}</td>
+                                <td>
+                                    @if ($item->image)
+                                        <img width="150px" src="{{ asset('storage/' . $item->image) }}" alt="Gambar">
+                                    @else
+                                        Tidak ada gambar
+                                    @endif
+                                </td>
                                 <td>
                                     <!-- Bikin tombol edit dan delete -->
                                     <a href="{{ url('/artikel/' . $item->artikel_id . '/edit') }}"

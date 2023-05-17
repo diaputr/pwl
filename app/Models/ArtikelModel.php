@@ -15,6 +15,7 @@ class ArtikelModel extends Model
         'judul',
         'penulis',
         'kategori',
-        'tgl_publish'
+        'tgl_publish',
+        'image',
     ];
 }
