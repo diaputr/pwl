@@ -59,6 +59,9 @@
                     </div>
                     <div class="card-footer">
                         <a class="btn btn-outline-dark my-2 float-right" href="{{ url('/mahasiswa') }}">Back</a>
+                        <a href="{{ url('/mahasiswa/' . $mhs->id . '/khs/cetak_pdf') }}"
+                            class="btn btn-primary my-2 float-right mr-2">
+                            <i class="fas fa-print"></i> Print PDF </a>
                     </div>
                 </div>
             </div>

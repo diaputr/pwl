@@ -9,6 +9,7 @@ use App\Models\ProdiModel;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Storage;
+use PDF;
 
 class MahasiswaController extends Controller
 {
@@ -81,6 +82,13 @@ class MahasiswaController extends Controller
     {
         $mhs = MahasiswaModel::with('matkul')->find($id);
         return view('mahasiswa.khs', ['mhs' => $mhs]);
+    }
+
+    public function cetak_pdf($id)
+    {
+        $mhs = MahasiswaModel::with('matkul')->find($id);
+        $pdf = PDF::loadview('mahasiswa.khs-pdf', ['mhs' => $mhs]);
+        return $pdf->stream();
     }
 
     /**
