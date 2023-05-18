@@ -22,21 +22,28 @@
         <!-- Main content -->
         <section class="content">
             <div class="row justify-content-center">
-                <div class="card" style="width: 50%">
+                <div class="card" style="width: 70%">
                     <div class="card-body">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><b>NIM : </b>{{ $mhs->nim }}</li>
-                            <li class="list-group-item"><b>Nama : </b>{{ $mhs->nama }}</li>
-                            <li class="list-group-item"><b>Gender :
-                                </b>{{ $mhs->jk == 'L' ? 'Laki-Laki' : 'Perempuan' }}</li>
-                            <li class="list-group-item"><b>Tempat, Tanggal Lahir : </b>{{ $mhs->tempat_lahir }},
-                                {{ $mhs->tgl_lahir }}</li>
-                            <li class="list-group-item"><b>Kelas : </b>{{ $mhs->kls->nama }}</li>
-                            <li class="list-group-item"><b>Program Studi : </b>{{ $mhs->prodi->nama }}</li>
-                            <li class="list-group-item"><b>Alamat : </b>{{ $mhs->alamat }}</li>
-                            <li class="list-group-item"><b>Hp : </b>{{ $mhs->hp }}</li>
-                        </ul>
-                        <a class="btn btn-primary mt-3 float-right" href="{{ url('/mahasiswa') }}">Back</a>
+                        <div class="row">
+                            <div class="col-md-4 mt-3">
+                                <img width="230px" src="{{ asset('storage/' . $mhs->foto) }}">
+                            </div>
+                            <div class="col-md-8">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><b>NIM : </b>{{ $mhs->nim }}</li>
+                                    <li class="list-group-item"><b>Nama : </b>{{ $mhs->nama }}</li>
+                                    <li class="list-group-item"><b>Gender :
+                                        </b>{{ $mhs->jk == 'L' ? 'Laki-Laki' : 'Perempuan' }}</li>
+                                    <li class="list-group-item"><b>Tempat, Tanggal Lahir : </b>{{ $mhs->tempat_lahir }},
+                                        {{ $mhs->tgl_lahir }}</li>
+                                    <li class="list-group-item"><b>Kelas : </b>{{ $mhs->kls->nama }}</li>
+                                    <li class="list-group-item"><b>Program Studi : </b>{{ $mhs->prodi->nama }}</li>
+                                    <li class="list-group-item"><b>Alamat : </b>{{ $mhs->alamat }}</li>
+                                    <li class="list-group-item"><b>Hp : </b>{{ $mhs->hp }}</li>
+                                </ul>
+                                <a class="btn btn-primary mt-3 float-right" href="{{ url('/mahasiswa') }}">Back</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

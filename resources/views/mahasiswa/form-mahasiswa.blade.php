@@ -24,9 +24,21 @@
             <div class="row justify-content-center">
                 <div class="card" style="width: 80%">
                     <div class="card-body ">
-                        <form method="POST" action="{{ $urlform }}">
+                        <form method="POST" action="{{ $urlform }}" enctype="multipart/form-data">
                             @csrf
                             {!! isset($mhs) ? method_field('PUT') : '' !!}
+                            <div class="form-group">
+                                <label for="image">Foto</label>
+                                @if (isset($mhs) && $mhs->foto)
+                                    <div class="mb-3">
+                                        <img width="100px" src="{{ asset('storage/' . $mhs->foto) }}">
+                                    </div>
+                                    <input type="file" class="form-control" name="image">
+                                @else
+                                    <input type="file" class="form-control" required="required" name="image"
+                                        value="{{ old('image') }}">
+                                @endif
+                            </div>
                             <div class="form-group">
                                 <label>NIM</label>
                                 <input class="form-control @error('nim') is-invalid @enderror"
@@ -117,7 +129,8 @@
                                     <span class="error invalid-feedback">{{ $message }}</span>
                                 @enderror
                             </div>
-                            <button class="btn btn-md btn-primary my-2 float-right" type="submit">Submit</button>
+                            <a class="btn btn-outline-dark my-2 float-right" href="{{ url('/mahasiswa') }}">Cancel</a>
+                            <button class="btn btn-md btn-primary my-2 float-right mr-2" type="submit">Submit</button>
                         </form>
                     </div>
                 </div>

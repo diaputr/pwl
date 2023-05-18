@@ -39,7 +39,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @if ($mhs->count() > 0)
+                                @if ($mhs->matkul->count() > 0)
                                     @foreach ($mhs->matkul as $key => $matkul)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
@@ -56,7 +56,9 @@
                                 @endif
                             </tbody>
                         </table>
-                        <a class="btn btn-primary mt-3 float-right" href="{{ url('/mahasiswa') }}">Back</a>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-outline-dark my-2 float-right" href="{{ url('/mahasiswa') }}">Back</a>
                     </div>
                 </div>
             </div>
