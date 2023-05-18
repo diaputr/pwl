@@ -16,10 +16,7 @@ return new class extends Migration
         Schema::create('matkul_models', function (Blueprint $table) {
             $table->id('matkul_id');
             $table->string('nama', 50);
-            $table->string('dosen', 80);
             $table->integer('sks');
-            $table->string('hari', 20);
-            $table->string('ruang', 10);
         });
     }
 

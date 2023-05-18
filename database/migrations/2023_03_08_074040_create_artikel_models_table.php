@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id('artikel_id');
             $table->string('judul', 50);
             $table->string('penulis', 35);
-            $table->enum('kategori', ['hobi', 'politik', 'keseharian']);
+            $table->enum('kategori', ['Hobi', 'Politik', 'Keseharian']);
             $table->date('tgl_publish');
         });
     }

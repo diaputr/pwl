@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::table('matkuls', function (Blueprint $table) {
             $table->string('kode', 6)->after('matkul_id');
             $table->integer('jam')->after('sks');
-            $table->integer('semester')->after('dosen');
+            $table->integer('semester');
         });
     }
 
@@ -27,10 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('matkuls', function (Blueprint $table) {
-            $table->dropColumn('dosen');
-            $table->dropColumn('hari');
-            $table->dropColumn('ruang');
-        });
+        //
     }
 };

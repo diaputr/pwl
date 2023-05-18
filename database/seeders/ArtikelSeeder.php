@@ -15,7 +15,7 @@ class ArtikelSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('artikel_models')->insert([
+        DB::table('artikels')->insert([
             [
                 'judul' => 'Semangat Membagi Hobi Menjadi Pekerjaan',
                 'penulis' => 'Rian Hiori',

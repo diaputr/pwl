@@ -17,196 +17,196 @@ class MhsMatkulSeeder extends Seeder
     {
         DB::table('mhs_matkuls')->insert([
             [
-                'id_mhs' => '11',
-                'id_matkul' => '12',
+                'id_mhs' => '1',
+                'id_matkul' => '1',
                 'nilai' => 'B'
             ], [
-                'id_mhs' => '11',
-                'id_matkul' => '13',
+                'id_mhs' => '1',
+                'id_matkul' => '2',
                 'nilai' => 'A'
             ], [
-                'id_mhs' => '11',
-                'id_matkul' => '14',
+                'id_mhs' => '1',
+                'id_matkul' => '3',
                 'nilai' => 'A+'
             ], [
-                'id_mhs' => '11',
-                'id_matkul' => '15',
+                'id_mhs' => '1',
+                'id_matkul' => '4',
                 'nilai' => 'B'
             ], [
-                'id_mhs' => '11',
-                'id_matkul' => '16',
+                'id_mhs' => '1',
+                'id_matkul' => '5',
                 'nilai' => 'A'
             ], [
-                'id_mhs' => '11',
-                'id_matkul' => '17',
+                'id_mhs' => '1',
+                'id_matkul' => '6',
                 'nilai' => 'A+'
             ], [
-                'id_mhs' => '11',
-                'id_matkul' => '18',
+                'id_mhs' => '1',
+                'id_matkul' => '7',
                 'nilai' => 'B+'
             ], [
-                'id_mhs' => '11',
-                'id_matkul' => '19',
+                'id_mhs' => '1',
+                'id_matkul' => '8',
                 'nilai' => 'A'
             ], [
-                'id_mhs' => '12',
-                'id_matkul' => '16',
+                'id_mhs' => '2',
+                'id_matkul' => '1',
                 'nilai' => 'A'
             ], [
-                'id_mhs' => '12',
-                'id_matkul' => '12',
+                'id_mhs' => '2',
+                'id_matkul' => '2',
                 'nilai' => 'A+'
             ], [
-                'id_mhs' => '12',
-                'id_matkul' => '13',
+                'id_mhs' => '2',
+                'id_matkul' => '3',
                 'nilai' => 'A'
             ], [
-                'id_mhs' => '12',
-                'id_matkul' => '14',
+                'id_mhs' => '2',
+                'id_matkul' => '4',
                 'nilai' => 'A'
             ], [
-                'id_mhs' => '12',
-                'id_matkul' => '15',
+                'id_mhs' => '2',
+                'id_matkul' => '5',
                 'nilai' => 'B+'
             ], [
-                'id_mhs' => '12',
-                'id_matkul' => '17',
+                'id_mhs' => '2',
+                'id_matkul' => '6',
                 'nilai' => 'A+'
             ], [
-                'id_mhs' => '12',
-                'id_matkul' => '18',
+                'id_mhs' => '2',
+                'id_matkul' => '7',
                 'nilai' => 'B+'
             ], [
-                'id_mhs' => '12',
-                'id_matkul' => '19',
+                'id_mhs' => '2',
+                'id_matkul' => '8',
                 'nilai' => 'B+'
             ], [
-                'id_mhs' => '13',
-                'id_matkul' => '16',
+                'id_mhs' => '3',
+                'id_matkul' => '1',
                 'nilai' => 'A'
             ], [
-                'id_mhs' => '13',
-                'id_matkul' => '12',
+                'id_mhs' => '3',
+                'id_matkul' => '2',
                 'nilai' => 'C'
             ], [
-                'id_mhs' => '13',
-                'id_matkul' => '13',
+                'id_mhs' => '3',
+                'id_matkul' => '3',
                 'nilai' => 'A'
             ], [
-                'id_mhs' => '13',
-                'id_matkul' => '14',
+                'id_mhs' => '3',
+                'id_matkul' => '4',
                 'nilai' => 'A+'
             ], [
-                'id_mhs' => '13',
-                'id_matkul' => '15',
+                'id_mhs' => '3',
+                'id_matkul' => '5',
                 'nilai' => 'B+'
             ], [
-                'id_mhs' => '13',
-                'id_matkul' => '17',
+                'id_mhs' => '3',
+                'id_matkul' => '6',
                 'nilai' => 'A+'
             ], [
-                'id_mhs' => '13',
-                'id_matkul' => '18',
+                'id_mhs' => '3',
+                'id_matkul' => '7',
                 'nilai' => 'B+'
             ], [
-                'id_mhs' => '13',
-                'id_matkul' => '19',
+                'id_mhs' => '3',
+                'id_matkul' => '8',
                 'nilai' => 'A+'
             ], [
-                'id_mhs' => '14',
-                'id_matkul' => '16',
+                'id_mhs' => '4',
+                'id_matkul' => '1',
                 'nilai' => 'A'
             ], [
-                'id_mhs' => '14',
-                'id_matkul' => '12',
+                'id_mhs' => '4',
+                'id_matkul' => '2',
                 'nilai' => 'B'
             ], [
-                'id_mhs' => '14',
-                'id_matkul' => '13',
+                'id_mhs' => '4',
+                'id_matkul' => '3',
                 'nilai' => 'B+'
             ], [
-                'id_mhs' => '14',
-                'id_matkul' => '14',
+                'id_mhs' => '4',
+                'id_matkul' => '4',
                 'nilai' => 'A'
             ], [
-                'id_mhs' => '14',
-                'id_matkul' => '15',
+                'id_mhs' => '4',
+                'id_matkul' => '5',
                 'nilai' => 'B+'
             ], [
-                'id_mhs' => '14',
-                'id_matkul' => '17',
+                'id_mhs' => '4',
+                'id_matkul' => '6',
                 'nilai' => 'A+'
             ], [
-                'id_mhs' => '14',
-                'id_matkul' => '18',
+                'id_mhs' => '4',
+                'id_matkul' => '7',
                 'nilai' => 'B+'
             ], [
-                'id_mhs' => '14',
-                'id_matkul' => '19',
+                'id_mhs' => '4',
+                'id_matkul' => '8',
                 'nilai' => 'C'
             ], [
-                'id_mhs' => '15',
-                'id_matkul' => '16',
+                'id_mhs' => '5',
+                'id_matkul' => '1',
                 'nilai' => 'A'
             ], [
-                'id_mhs' => '15',
-                'id_matkul' => '12',
+                'id_mhs' => '5',
+                'id_matkul' => '2',
                 'nilai' => 'B+'
             ], [
-                'id_mhs' => '15',
-                'id_matkul' => '13',
+                'id_mhs' => '5',
+                'id_matkul' => '3',
                 'nilai' => 'A'
             ], [
-                'id_mhs' => '15',
-                'id_matkul' => '14',
+                'id_mhs' => '5',
+                'id_matkul' => '4',
                 'nilai' => 'A'
             ], [
-                'id_mhs' => '15',
-                'id_matkul' => '15',
+                'id_mhs' => '5',
+                'id_matkul' => '5',
                 'nilai' => 'B'
             ], [
-                'id_mhs' => '15',
-                'id_matkul' => '17',
+                'id_mhs' => '5',
+                'id_matkul' => '6',
                 'nilai' => 'A+'
             ], [
-                'id_mhs' => '15',
-                'id_matkul' => '18',
+                'id_mhs' => '5',
+                'id_matkul' => '7',
                 'nilai' => 'B+'
             ], [
-                'id_mhs' => '15',
-                'id_matkul' => '19',
+                'id_mhs' => '5',
+                'id_matkul' => '8',
                 'nilai' => 'A'
             ], [
-                'id_mhs' => '16',
-                'id_matkul' => '16',
+                'id_mhs' => '6',
+                'id_matkul' => '1',
                 'nilai' => 'A'
             ], [
-                'id_mhs' => '16',
-                'id_matkul' => '12',
+                'id_mhs' => '6',
+                'id_matkul' => '2',
                 'nilai' => 'B+'
             ], [
-                'id_mhs' => '16',
-                'id_matkul' => '13',
+                'id_mhs' => '6',
+                'id_matkul' => '3',
                 'nilai' => 'A'
             ], [
-                'id_mhs' => '16',
-                'id_matkul' => '14',
+                'id_mhs' => '6',
+                'id_matkul' => '4',
                 'nilai' => 'C'
             ], [
-                'id_mhs' => '16',
-                'id_matkul' => '15',
+                'id_mhs' => '6',
+                'id_matkul' => '5',
                 'nilai' => 'B+'
             ], [
-                'id_mhs' => '16',
-                'id_matkul' => '17',
+                'id_mhs' => '6',
+                'id_matkul' => '6',
                 'nilai' => 'A+'
             ], [
-                'id_mhs' => '16',
-                'id_matkul' => '18',
+                'id_mhs' => '6',
+                'id_matkul' => '7',
                 'nilai' => 'B+'
             ], [
-                'id_mhs' => '16',
-                'id_matkul' => '19',
+                'id_mhs' => '6',
+                'id_matkul' => '8',
                 'nilai' => 'A+'
             ],
         ]);

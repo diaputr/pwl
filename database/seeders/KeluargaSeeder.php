@@ -15,7 +15,7 @@ class KeluargaSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('keluarga_models')->insert([
+        DB::table('keluargas')->insert([
             [
                 'nama' => 'Joko Harianto',
                 'jk' => 'L',
