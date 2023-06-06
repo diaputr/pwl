@@ -105,9 +105,10 @@ class MahasiswaController extends Controller
      */
     public function show($id)
     {
-        $mhs = MahasiswaModel::with('kls')->find($id);
-        return view('mahasiswa.detail', ['mhs' => $mhs]);
+        $mhs = MahasiswaModel::with('kls', 'prodi')->find($id);
+        return response()->json($mhs);
     }
+
 
     public function khs($id)
     {
@@ -188,6 +189,9 @@ class MahasiswaController extends Controller
     public function destroy($id)
     {
         MahasiswaModel::where('id', '=', $id)->delete();
-        return redirect('/mahasiswa')->with('success', 'Mahasiswa Berhasil Dihapus');
+        return response()->json([
+            'message' => 'Data berhasil dihapus',
+            'status' => true
+        ]);
     }
 }

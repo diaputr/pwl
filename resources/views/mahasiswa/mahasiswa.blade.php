@@ -26,7 +26,7 @@
                     <button class="btn btn-sm btn-success my-2" data-toggle="modal" data-target="#modal_mahasiswa">
                         <i class="fa fa-plus"></i> Add Data</button>
                 </div>
-                <div class="card-body">
+                <div class="card-body table-responsive">
                     @if (session('success'))
                         <div class="container">
                             <div class="row justify-content-center">
@@ -104,13 +104,12 @@
                         <div class="form-group">
                             <label>Gender</label><br>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="jk" value="L" id="jk_laki">
-                                <label class="form-check-label" for="jk_laki">Laki-laki</label>
+                                <input class="form-check-input" type="radio" name="jk" value="L" id="jk_l">
+                                <label class="form-check-label" for="jk_l">Laki-laki</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="jk" value="P"
-                                    id="jk_perempuan">
-                                <label class="form-check-label" for="jk_perempuan">Perempuan</label>
+                                <input class="form-check-input" type="radio" name="jk" value="P" id="jk_p">
+                                <label class="form-check-label" for="jk_p">Perempuan</label>
                             </div>
                             @error('jk')
                                 <div class="error invalid-feedback">{{ $message }}</div>
@@ -118,7 +117,7 @@
                         </div>
                         <div class="form-group">
                             <label>Kelas</label>
-                            <select name="id_kelas" class="form-control" id="id_kelas">
+                            <select name="id_kelas" class="form-control" id="kelas">
                                 <option value="">-- Pilih Kelas --</option>
                                 @foreach ($kelas as $kls)
                                     <option value="{{ $kls->id }}">{{ $kls->nama }}</option>
@@ -127,7 +126,7 @@
                         </div>
                         <div class="form-group">
                             <label>Program Studi</label>
-                            <select name="id_prodi" class="form-control" id="id_prodi">
+                            <select name="id_prodi" class="form-control" id="prodi">
                                 <option value="">-- Pilih Prodi --</option>
                                 @foreach ($prodi as $pro)
                                     <option value="{{ $pro->id }}">{{ $pro->nama }}</option>
@@ -176,6 +175,35 @@
             </div>
         </form>
     </div>
+    <div class="modal fade" id="detail_mahasiswa" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title fs-5" id="exampleModalLabel">Student Detail</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><b>NIM : </b><span id="nim"></span></li>
+                        <li class="list-group-item"><b>Nama : </b><span id="nama"></span></li>
+                        <li class="list-group-item"><b>Gender : </b><span id="jk"></span></li>
+                        <li class="list-group-item"><b>Tempat, Tanggal Lahir : </b><span id="tempat_lahir"></span>,
+                            <span id="tgl_lahir"></span>
+                        </li>
+                        {{-- <li class="list-group-item"><b>Kelas : </b><span id="kelas"></span></li> --}}
+                        {{-- <li class="list-group-item"><b>Program Studi : </b><span id="prodi"></span></li> --}}
+                        <li class="list-group-item"><b>Alamat : </b><span id="alamat"></span></li>
+                        <li class="list-group-item"><b>Hp : </b><span id="hp"></span></li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @push('custom_js')
@@ -188,18 +216,61 @@
             $('#modal_mahasiswa #foto').attr('src', $(th).data('foto'));
             var jk = $(th).data('jk');
             if (jk == 'L') {
-                $('#modal_mahasiswa #jk_laki').prop('checked', true);
+                $('#modal_mahasiswa #jk_l').prop('checked', true);
             } else if (jk == 'P') {
-                $('#modal_mahasiswa #jk_perempuan').prop('checked', true);
+                $('#modal_mahasiswa #jk_p').prop('checked', true);
             }
-            $('#modal_mahasiswa #id_prodi').val($(th).data('id_prodi'));
-            $('#modal_mahasiswa #id_kelas').val($(th).data('id_kelas'));
+            $('#modal_mahasiswa #kelas').val($(th).data('id_kelas'));
+            $('#modal_mahasiswa #prodi').val($(th).data('id_prodi'));
             $('#modal_mahasiswa #tempat_lahir').val($(th).data('tempat_lahir'));
             $('#modal_mahasiswa #tgl_lahir').val($(th).data('tgl_lahir'));
             $('#modal_mahasiswa #alamat').val($(th).data('alamat'));
             $('#modal_mahasiswa #hp').val($(th).data('hp'));
             $('#modal_mahasiswa #form_mahasiswa').attr('action', $(th).data('url'));
             $('#modal_mahasiswa #form_mahasiswa').append('<input type="hidden" name="_method" value="PUT">');
+        }
+
+        function showData(th) {
+            $('#detail_mahasiswa').modal('show');
+            $('#detail_mahasiswa #nim').html($(th).data('nim'));
+            $('#detail_mahasiswa #nama').html($(th).data('nama'));
+            $('#detail_mahasiswa #jk').html($(th).data('jk'));
+            var jk = $(th).data('jk');
+            if (jk == 'L') {
+                $('#detail_mahasiswa #jk').html('Laki-laki');
+            } else {
+                $('#detail_mahasiswa #jk').html('Perempuan');
+            }
+            $('#detail_mahasiswa #kelas').html($(th).data('kelas'));
+            $('#detail_mahasiswa #prodi').html($(th).data('prodi'));
+            $('#detail_mahasiswa #tempat_lahir').html($(th).data('tempat_lahir'));
+            $('#detail_mahasiswa #tgl_lahir').html($(th).data('tgl_lahir'));
+            $('#detail_mahasiswa #alamat').html($(th).data('alamat'));
+            $('#detail_mahasiswa #hp').html($(th).data('hp'));
+        }
+
+        function deleteData(th) {
+            var url = $(th).data('url');
+            var confirmation = confirm('Apakah anda yakin ingin menghapus data ini?');
+            if (confirmation == true) {
+                $.ajax({
+                    url: url,
+                    method: "POST",
+                    data: {
+                        _method: 'DELETE',
+                        _token: '{{ csrf_token() }}'
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data.status) {
+                            alert(data.message);
+                            dataMahasiswa.ajax.reload(null, false);
+                        } else {
+                            alert(data.message);
+                        }
+                    }
+                });
+            }
         }
 
         $(document).ready(function() {
@@ -252,32 +323,63 @@
                         sortable: false,
                         searchable: false
                     },
+                    /*{
+                        data: 'nama_kelas',
+                        name: 'kelas.nama',
+                        sortable: false,
+                        searchable: false
+                    },
+                    {
+                        data: 'prodi',
+                        name: 'prodi.nama',
+                        sortable: false,
+                        searchable: false
+                    },*/
                     {
                         data: 'id',
                         name: 'id',
                         sortable: false,
                         searchable: false,
                         render: function(data, type, row, meta) {
-                            var btn = `<button data-url="{{ url('/mahasiswa') }}/` + data + `" 
-                                class="btn btn-xs btn-warning" onclick="updateData(this)" 
-                                data-id="` + row.id + `" 
-                                data-foto="{{ asset('storage') }}/ ` + row.foto + `" 
-                                data-nim="` + row.nim + `" 
-                                data-nama="` + row.nama + `" 
-                                data-jk="` + row.jk + `" 
-                                data-id_kelas="` + row.id_kelas + `" 
-                                data-id_prodi="` + row.id_prodi + `" 
-                                data-tempat_lahir="` + row.tempat_lahir + `" 
-                                data-tgl_lahir="` + row.tgl_lahir + `" 
-                                data-alamat="` + row.alamat + `" 
-                                data-hp="` + row.hp + `">
-                                <i class="fa fa-edit"></i> Edit</button>` +
-                                `<a href="{{ url('/mahasiswa/') }} " class="btn btn-xs btn-info"><i class="fa fa-list"></i> Detail</a>` +
-                                `<form method="POST" action="{{ url('/mahasiswa/') }}` + data + `">
-                                    @csrf @method('DELETE')
-                            <button type="submit" class="btn btn-xs btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">
-                                <i class="fa fa-trash"></i> Hapus</button>
-                        </form>`;
+                            var btn = `
+                                <div class="d-flex">                                    
+                                    <button data-url="{{ url('/mahasiswa') }}/" + data 
+                                            class="btn btn-sm btn-primary mr-2" 
+                                            onclick="showData(this)" 
+                                            data-id="` + row.id + `"
+                                            data-foto="{{ asset('storage') }}/` + row.foto + `"
+                                            data-nim="` + row.nim + `"
+                                            data-nama="` + row.nama + `"
+                                            data-jk="` + row.jk + `"
+                                            data-kelas="` + row.id_kelas + `"
+                                            data-prodi="` + row.id_prodi + `"
+                                            data-tempat_lahir="` + row.tempat_lahir + `"
+                                            data-tgl_lahir="` + row.tgl_lahir + `"
+                                            data-alamat="` + row.alamat + `"
+                                            data-hp="` + row.hp + `">
+                                        <i class="fa fa-eye"></i> Detail
+                                    </button>
+                                    <button data-url="{{ url('/mahasiswa') }}/${data}" 
+                                            class="btn btn-sm btn-warning mr-2" 
+                                            onclick="updateData(this)" 
+                                            data-id="` + row.id + `"
+                                            data-foto="{{ asset('storage') }}/` + row.foto + `"
+                                            data-nim="` + row.nim + `"
+                                            data-nama="` + row.nama + `"
+                                            data-jk="` + row.jk + `"
+                                            data-id_kelas="` + row.id_kelas + `"
+                                            data-id_prodi="` + row.id_prodi + `"
+                                            data-tempat_lahir="` + row.tempat_lahir + `"
+                                            data-tgl_lahir="` + row.tgl_lahir + `"
+                                            data-alamat="` + row.alamat + `"
+                                            data-hp="` + row.hp + `">
+                                        <i class="fa fa-edit"></i> Edit
+                                    </button>                            
+                                    <button onclick="deleteData(this)" class="btn btn-sm btn-danger" data-url="{{ url('/mahasiswa') }}/${data}">
+                                        <i class="fa fa-trash"></i> Delete
+                                    </button>                                
+                                </div>
+                            `;
                             return btn;
                         }
                     },
