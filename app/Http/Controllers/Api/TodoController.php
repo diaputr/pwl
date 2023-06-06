@@ -36,7 +36,7 @@ class TodoController extends Controller
 
         $user = auth()->user();
         $todo = new Todo($request->all());
-        $todo->user->associate($user);
+        $todo->user()->associate($user);
         $todo->save();
 
         return $this->apiSuccess($todo->load('user'));

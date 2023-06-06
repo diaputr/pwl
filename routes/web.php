@@ -139,6 +139,7 @@ Route::middleware(['auth'])->group(function () {
 
     //Pertemuan 8 CRUD
     Route::resource('/mahasiswa', MahasiswaController::class);
+    Route::post('/mahasiswa/data', [MahasiswaController::class, 'data']);
     Route::resource('/hobi', HobiController::class);
     Route::resource('/matkul', MatkulController::class);
     Route::resource('/keluarga', KeluargaController::class);

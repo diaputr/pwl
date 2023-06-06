@@ -9,20 +9,18 @@ class MahasiswaModel extends Model
 {
     use HasFactory;
     protected $table = 'mahasiswas';
-    protected $primaryKey = 'id';
-    public $incrementing = true;
 
     protected $fillable = [
         'nim',
         'nama',
-        'foto',
+        'id_kelas',
+        'id_prodi',
         'jk',
         'tempat_lahir',
         'tgl_lahir',
         'alamat',
         'hp',
-        'id_kelas',
-        'id_prodi'
+        'foto'
     ];
 
     public function kls()
